@@ -1,10 +1,12 @@
-import { useGithubUser } from "./UseGithubUser";
+import { useParams } from "react-router-dom";
+import { useGithubUserTwo } from "./useGithubUserTwo";
 
-export function GithubUser({ username }) {
-  const { data, error, loading, onFetchUser } = useGithubUser(username);
+export function GithubUser() {
+  const { username } = useParams();
+  const { data, error, loading, onFetchUser } = useGithubUserTwo(username);
 
   function handleGetUserData() {
-    onFetchUser(username);
+    onFetchUser();
   }
 
   return (

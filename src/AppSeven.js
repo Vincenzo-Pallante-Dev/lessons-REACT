@@ -3,6 +3,8 @@ import { WelcomeFunctionTwo } from "./WelcomeFunctionTwo";
 import { Container } from "./Container";
 import { Catalogue } from "./Catalogue";
 import { Product } from "./Product";
+import { GithubUsers } from "./GithubUsers";
+import { GithubUser } from "./GithubUser";
 // import { LoginForm } from "./LoginForm";
 
 export function AppSeven() {
@@ -12,7 +14,8 @@ export function AppSeven() {
         <div>
           <h1>My Awesome App</h1>
           <div>
-            <Link to="/">Home</Link> | <Link to="products">Products</Link>
+            <Link to="/">Home</Link> | <Link to="products">Products</Link> |{" "}
+            <Link to="users">Users</Link>
           </div>
         </div>
       }
@@ -24,6 +27,9 @@ export function AppSeven() {
         <Route path="products" element={<Catalogue />}>
           <Route index element={<p>Please select a product</p>} />
           <Route path=":id" element={<Product />} />
+        </Route>
+        <Route path="users" element={<GithubUsers />}>
+          <Route path=":username" element={<GithubUser />} />
         </Route>
         <Route
           path="*"
